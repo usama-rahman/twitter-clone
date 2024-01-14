@@ -60,8 +60,8 @@ const LeftSidebar = () => {
           Post
         </button>
       </div>
-      <button className=" rounded-full flex items-center space-x-2 m-4 bg-transparent p-4 text-center hover:bg-opacity-70 transition duration-200 w-full">
-        <div className="flex items-center space-x-2">
+      <button className=" rounded-full flex items-center space-x-2 my-4 bg-transparent p-2 text-center hover:bg-white/10 transition duration-200 w-full ">
+        <div className="flex items-center space-x-2 ">
           <div className="rounded-full bg-slate-400 w-12 h-12"></div>
           <div className="text-left text-sm">
             <div className="font-semibold"> usama rahman </div>
