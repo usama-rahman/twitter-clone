@@ -42,23 +42,27 @@ const navigationItem = [
 
 const LeftSidebar = () => {
   return (
-    <section className="fixed w-[75] flex flex-col items-stretch h-screen space-y-4 justify-between bg-black ">
-      <div className="w-full my-4 ">
+    <section className="fixed w-[30%] flex flex-col items-stretch h-screen space-y-4 justify-between text-white bg-black ">
+      <div className="w-full my-4   ">
         {navigationItem.map((item) => (
           <Link
             key={item.title}
-            className="hover:bg-white/10 text-2xl transition duration-200 flex items-center justify-center w-fit rounded-3xl py-2 px-4 space-x-4 my-3"
+            className="hover:bg-white/10 text-2xl transition duration-200 flex items-center justify-end w-full xl:w-fit rounded-3xl py-2 px-4 space-x-4 my-3"
             href={`/${item.title.toLocaleLowerCase()}`}
           >
             <div className="text-3xl">
               <item.icon />
             </div>
-            {item.title !== "Twitter" && <div> {item.title} </div>}
+            <div className="xl:flex hidden">
+              {item.title !== "Twitter" && <div> {item.title} </div>}
+            </div>
           </Link>
         ))}
-        <button className="w-full rounded-full bg-primary px-4 py-3 text-md mt-6 text-center">
-          Post
-        </button>
+        <div className="w-full flex justify-end">
+          <button className="xl:w-full rounded-full bg-primary px-4 py-3 text-md mt-6 text-center">
+            Post
+          </button>
+        </div>
       </div>
       <button className=" rounded-full flex items-center space-x-2 my-4 bg-transparent p-2 text-center hover:bg-white/10 transition duration-200 w-full ">
         <div className="flex items-center space-x-2 ">
