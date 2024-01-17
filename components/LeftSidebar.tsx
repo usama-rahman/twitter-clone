@@ -42,15 +42,15 @@ const navigationItem = [
 
 const LeftSidebar = () => {
   return (
-    <section className="fixed w-[30%] flex flex-col items-stretch h-screen space-y-4 justify-between text-white bg-black ">
-      <div className="w-full my-4   ">
+    <section className="fixed xl:w-[15%] flex flex-col items-stretch h-screen space-y-4 justify-between text-white bg-black border-solid border-r-[0.1px] border-gray-800 ml-4 ">
+      <div className="w-4/5 my-4   ">
         {navigationItem.map((item) => (
           <Link
             key={item.title}
-            className="hover:bg-white/10 text-2xl transition duration-200 flex items-center justify-end w-full xl:w-fit rounded-3xl py-2 px-4 space-x-4 my-3"
+            className="hover:bg-white/10 text-xl transition duration-200 flex items-center justify-end w-full xl:w-fit rounded-3xl py-2 px-4 space-x-4 my-3"
             href={`/${item.title.toLocaleLowerCase()}`}
           >
-            <div className="text-3xl">
+            <div className="text-2xl">
               <item.icon />
             </div>
             <div className="xl:flex hidden">
@@ -67,11 +67,12 @@ const LeftSidebar = () => {
       <button className=" rounded-full flex items-center space-x-2 my-4 bg-transparent p-2 text-center hover:bg-white/10 transition duration-200 w-full ">
         <div className="flex items-center space-x-2 ">
           <div className="rounded-full bg-slate-400 w-12 h-12"></div>
-          <div className="text-left text-sm">
+
+          <div className="text-left text-sm hidden xl:flex  flex-col">
             <div className="font-semibold"> usama rahman </div>
             <div className=""> @usamarahman </div>
           </div>
-          <div>
+          <div className="hidden xl:flex">
             <BsThreeDots />
           </div>
         </div>
