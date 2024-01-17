@@ -42,12 +42,12 @@ const navigationItem = [
 
 const LeftSidebar = () => {
   return (
-    <section className="fixed xl:w-[15%] flex flex-col items-stretch h-screen space-y-4 justify-between text-white bg-black border-solid border-r-[0.1px] border-gray-800 ml-4 ">
-      <div className="w-4/5 my-4   ">
+    <section className="fixed xl:w-[15%] flex flex-col  h-screen space-y-4 justify-between text-white  border-solid border-r-[1px] border-gray-800">
+      <div className="my-4 w-full ">
         {navigationItem.map((item) => (
           <Link
             key={item.title}
-            className="hover:bg-white/10 text-xl transition duration-200 flex items-center justify-end w-full xl:w-fit rounded-3xl py-2 px-4 space-x-4 my-3"
+            className="hover:bg-white/10 text-xl transition duration-200 flex items-center justify-center w-full xl:w-fit rounded-3xl py-2 px-4 space-x-4 my-3"
             href={`/${item.title.toLocaleLowerCase()}`}
           >
             <div className="text-2xl">
@@ -59,7 +59,7 @@ const LeftSidebar = () => {
           </Link>
         ))}
         <div className="w-full flex justify-end">
-          <button className="xl:w-full rounded-full bg-primary px-4 py-3 text-md mt-6 text-center">
+          <button className="xl:w-full rounded-full bg-primary px-4 py-3 text-md mt-6 mx-4 text-center">
             Post
           </button>
         </div>
