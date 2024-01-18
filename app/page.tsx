@@ -2,11 +2,14 @@ import FeedSection from "@/components/FeedSection";
 import LeftSidebar from "../components/LeftSidebar";
 import FollowBar from "@/components/FollowBar";
 import Modal from "@/components/Modal";
+import LoginModal from "@/components/modals/LoginModal";
+import RegisterModal from "@/components/modals/RegisterModal";
 
 export default function Home() {
   return (
     <>
-      <Modal isOpen />
+      {/* <Modal actionLabel="submit" isOpen title="Test Modal" /> */}
+      <RegisterModal />
       <div className="h-screen bg-black">
         <div
           className="

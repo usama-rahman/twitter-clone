@@ -1,4 +1,8 @@
+"use client";
+
 import React, { useCallback } from "react";
+import { AiOutlineClose } from "react-icons/ai";
+import Button from "./ui/Button";
 
 interface ModalProps {
   isOpen?: boolean;
@@ -35,12 +39,56 @@ const Modal: React.FC<ModalProps> = ({
   return (
     <>
       <div
-        className=" flex justify-center items-center overflow-x-hidden overflow-y-auto 
-      fixed inset-0 z-50 outline-none focus:outline-none bg-neutral-800 bg-opacity-70
-      "
+        className=" 
+          flex justify-center items-center overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none bg-neutral-800 bg-opacity-70
+        "
       >
-        <div className="relative w-full lg:w-3/6 my-auto lg:max-w-3xl ">
-          Hello
+        <div
+          className="
+            relative w-full lg:w-3/6 my-auto lg:max-w-3xl h-full lg:h-auto 
+          "
+        >
+          {/* Content */}
+          <div
+            className=" 
+              h-full lg:h-auto border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-black outline-none focus:outline-none 
+          
+            "
+          >
+            {/* Header */}
+
+            <div
+              className="
+                flex items-center justify-between p-10 rounded-lg
+              "
+            >
+              <h3 className=" text-3xl font-semibold text-white">{title}</h3>
+
+              <button
+                onClick={handelClose}
+                className=" p-1 ml-auto text-white hover:opacity-70 transition "
+              >
+                <AiOutlineClose size={20} />
+              </button>
+            </div>
+
+            {/* Body */}
+
+            <div className="relative p-10 flex-auto  "> {body} </div>
+            {/* Footer */}
+
+            <div className="flex flex-col gap-2 p-10 ">
+              <Button
+                disable={disabled}
+                label={actionLabel}
+                secondary
+                fullWidth
+                large
+                onClick={handelSubmit}
+              />
+              {footer}
+            </div>
+          </div>
         </div>
       </div>
     </>
