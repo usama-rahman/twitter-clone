@@ -15,10 +15,10 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
   onClick,
 }) => {
   return (
-    <div className="flex flex-col justify-start items-center">
+    <>
       <div
         className="relative  h-14 rounded-full w-14
-      flex items-center  justify-center p-4 hover:bg-slate-300 hover:bg-opacity-10 cursor-pointer lg:hidden
+      flex items-center  justify-start p-4 hover:bg-slate-300 hover:bg-opacity-10 cursor-pointer lg:hidden
       "
       >
         <Icon size={28} color="white" />
@@ -31,7 +31,7 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
         <Icon size={24} color="white" />
         <p className="hidden lg:block text-white text-xl  "> {label} </p>
       </div>
-    </div>
+    </>
   );
 };
 

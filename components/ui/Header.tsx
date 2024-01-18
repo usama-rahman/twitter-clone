@@ -6,7 +6,7 @@ import { BiArrowBack } from "react-icons/bi";
 
 interface HeaderProps {
   label: string;
-  showBackArrow?: Boolean;
+  showBackArrow?: boolean;
 }
 const Header: React.FC<HeaderProps> = ({ label, showBackArrow }) => {
   const router = useRouter();
