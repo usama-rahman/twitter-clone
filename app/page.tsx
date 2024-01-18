@@ -10,6 +10,7 @@ export default function Home() {
     <>
       {/* <Modal actionLabel="submit" isOpen title="Test Modal" /> */}
       <RegisterModal />
+      <LoginModal />
       <div className="h-screen bg-black">
         <div
           className="

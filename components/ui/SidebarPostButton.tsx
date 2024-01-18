@@ -1,13 +1,17 @@
 "use client";
 
-import { useRouter } from "next/navigation";
-import React from "react";
+import useLoginModal from "@/hooks/useLoginModal";
+import React, { useCallback } from "react";
 import { FaFeather } from "react-icons/fa";
 
 const SidebarPostButton = () => {
-  const router = useRouter();
+  const loginModal = useLoginModal();
+
+  const onClickFunction = useCallback(() => {
+    loginModal.onOpen();
+  }, [loginModal]);
   return (
-    <div onClick={() => router.push("/")}>
+    <div onClick={onClickFunction}>
       <div className="mt-6 lg:hidden rounded-full h-14 w-14 p-4 flex items-center justify-between bg-sky-500 hover:opacity-80 transition cursor-pointer ">
         <FaFeather size={24} color="white" />
       </div>
