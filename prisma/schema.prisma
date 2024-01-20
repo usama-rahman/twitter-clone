@@ -21,4 +21,10 @@ emailVerified DateTime?
 image String?
 coverImage String?
 profileImage String?
+hashedPassword String?
+createdAt DateTime @default(now())
+updatedAt DateTime @updatedAt
+followingIds String[] @db.ObjectId
+hasNotification Boolean?
+
 }
