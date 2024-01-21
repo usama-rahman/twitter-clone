@@ -1,19 +1,22 @@
-"use client";
+'use client';
 
-import useLoginModal from "@/hooks/useLoginModal";
-import React, { useCallback, useState } from "react";
-import Input from "../ui/Input";
-import Modal from "../Modal";
-import useRegisterModal from "@/hooks/useRegisterModal";
+import useLoginModal from '@/hooks/useLoginModal';
+import React, { useCallback, useState } from 'react';
+import Input from '../ui/Input';
+import Modal from '../Modal';
+import useRegisterModal from '@/hooks/useRegisterModal';
+import axios from 'axios';
+import toast from 'react-hot-toast';
+import { signIn } from 'next-auth/react';
 
 const RegisterModal = () => {
   const loginModal = useLoginModal();
   const registerModal = useRegisterModal();
 
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [name, setName] = useState("");
-  const [userName, setUserName] = useState("");
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [name, setName] = useState('');
+  const [userName, setUserName] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
   const onToggle = useCallback(() => {
@@ -28,15 +31,28 @@ const RegisterModal = () => {
     try {
       setIsLoading(true);
 
-      // To Do Add Register
+      await axios.post('@/page/regiter', {
+        email,
+        password,
+        userName,
+        name,
+      });
+
+      toast.success('Account created.');
+
+      signIn('credentials', {
+        email,
+        password,
+      });
 
       registerModal.onClose();
     } catch (error) {
       console.log(error);
+      toast.error('Something went wrong');
     } finally {
       setIsLoading(false);
     }
-  }, [registerModal]);
+  }, [registerModal, email, password, userName, name]);
 
   const bodyContent = (
     <div className="flex flex-col gap-4 ">
@@ -70,7 +86,7 @@ const RegisterModal = () => {
   const footerContent = (
     <div className="text-neutral-400 text-center mt-4 ">
       <p>
-        Already have a account?{" "}
+        Already have a account?{' '}
         <span
           onClick={onToggle}
           className="text-white cursor-pointer hover:underline "

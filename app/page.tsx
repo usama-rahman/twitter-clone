@@ -5,10 +5,14 @@ import Modal from "@/components/Modal";
 import LoginModal from "@/components/modals/LoginModal";
 import RegisterModal from "@/components/modals/RegisterModal";
 
-export default function Home() {
+import type { AppProps } from "next/app";
+import { Toaster } from "react-hot-toast";
+import { SessionProvider } from "next-auth/react";
+
+export default function Home({ pageProps }: AppProps) {
   return (
-    <>
-      {/* <Modal actionLabel="submit" isOpen title="Test Modal" /> */}
+    <SessionProvider session={pageProps.session}>
+      <Toaster />
       <RegisterModal />
       <LoginModal />
       <div className="h-screen bg-black">
@@ -29,6 +33,6 @@ export default function Home() {
           </div>
         </div>
       </div>
-    </>
+    </SessionProvider>
   );
 }
