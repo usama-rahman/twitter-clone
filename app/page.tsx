@@ -1,17 +1,19 @@
-import FeedSection from "@/components/FeedSection";
-import LeftSidebar from "../components/LeftSidebar";
-import FollowBar from "@/components/FollowBar";
-import Modal from "@/components/Modal";
-import LoginModal from "@/components/modals/LoginModal";
-import RegisterModal from "@/components/modals/RegisterModal";
+'use client';
 
-import type { AppProps } from "next/app";
-import { Toaster } from "react-hot-toast";
-import { SessionProvider } from "next-auth/react";
+import FeedSection from '@/components/FeedSection';
+import LeftSidebar from '../components/LeftSidebar';
+import FollowBar from '@/components/FollowBar';
+
+import LoginModal from '@/components/modals/LoginModal';
+import RegisterModal from '@/components/modals/RegisterModal';
+
+import type { AppProps } from 'next/app';
+import { Toaster } from 'react-hot-toast';
+import { SessionProvider } from 'next-auth/react';
 
 export default function Home({ pageProps }: AppProps) {
   return (
-    <SessionProvider session={pageProps.session}>
+    <SessionProvider session={pageProps?.session}>
       <Toaster />
       <RegisterModal />
       <LoginModal />
